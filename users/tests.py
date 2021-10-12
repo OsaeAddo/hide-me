@@ -30,4 +30,15 @@ class CustomUserTests(TestCase):
         self.assertFalse(user.is_staff)
 
 
-    
+    def test_create_superuser(self):
+        User = get_user_model()
+        admin_user = User.objects.create_superuser(
+            username = 'superadmin',
+            email = 'superadmin@gmail.com',
+            password = 'testpass123'
+        )
+        self.assertEqual(admin_user.username, 'superadmin')
+        self.assertEqual(admin_user.email, 'superadmin@gmail.com')
+        self.assertTrue(admin_user.is_active)
+        self.assertTrue(admin_user.is_superuser)
+        self.assertTrue(admin_user.is_staff)
