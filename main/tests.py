@@ -15,4 +15,15 @@ class HomePageTests(SimpleTestCase):
     def test_homepage_template(self):
         self.assertTemplateUsed(self.response, 'home.html')
 
+    def test_homepage_url_resolves_homepageview(self):
+        """"
+        Test if HomePageView correctly renders the
+        homepage url
+        """
+        view = resolve('/')
+        self.assertEqual(
+            view.func.__name__,
+            HomePageView.as_view().__name__    
+        )
+
     
