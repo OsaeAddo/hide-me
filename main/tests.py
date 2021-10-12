@@ -12,4 +12,7 @@ class HomePageTests(SimpleTestCase):
     def test_homepage_status_code(self):
         self.assertEqual(self.response.status_code, 200)
 
+    def test_homepage_template(self):
+        self.assertTemplateUsed(self.response, 'home.html')
+
     
