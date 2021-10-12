@@ -27,3 +27,6 @@ class HomePageTests(SimpleTestCase):
         )
 
     
+
+class UserDashboardTests():
+    pass
